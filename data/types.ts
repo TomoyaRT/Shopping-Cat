@@ -3,4 +3,5 @@ export type Cat = {
   price: number
   name: string
   photo: string
+  description?: "這是一隻好貓"
 }
