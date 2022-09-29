@@ -1,4 +1,5 @@
 import { Cat } from "./types.ts"
+
 export const AllCats: Cat[] = [
   {
     id: "29",
@@ -33,7 +34,7 @@ export const AllCats: Cat[] = [
     name: "小花",
     price: 9.99,
     photo: "/cats/cat005.jpg",
-    description: "這是一隻好貓",
+    description: "這是一隻可愛的貓",
   },
   {
     id: "139",
