@@ -1,12 +1,18 @@
-# Shopping Cat
+# Shopping Cat v2
 
 Adopt, Don't Shop! 請以領養代替購買！
 
-## Setup Steps
+## 使用技術
 
-- Make sure `deno` is installed.
-- Run `deno task start` to run a development server on your local machine.
-- Check out `http://localhost:8000/`
+- (Deno)[https://deno.land/]
+- (TypeScript)[https://www.typescriptlang.org/]
+- (Fresh)[https://fresh.deno.dev/]
+
+## 啟動
+
+- 安裝 `deno`
+- 在本機執行 `deno task start` 啟動測試環境
+- 打開瀏覽器 `http://localhost:8000/`
 
 photo credits: [unsplash](https://unsplash.com/)
 

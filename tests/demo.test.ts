@@ -5,4 +5,8 @@ describe("這只是個簡單的測試", () => {
   it("1 + 1 等於多少", () => {
     expect(1 + 1).toBe(2)
   })
+
+  it("真的假不了！", () => {
+    expect(true).not.toBe(false)
+  })
 })
