@@ -1,18 +1,13 @@
-import { JSX } from "preact"
-
-export type Cat = {
-  id: string
-  price: number
-  name: string
-  photo: string
-}
+import { Cat } from "../data/types.ts"
 
 export function Product(props: Cat) {
   const { id, price, name, photo } = props
   return (
     <div className="col-sm-2 my-2" id={id}>
       <div className="card">
-        <img src={photo} alt={name} />
+        <a href={`/cats/${id}`}>
+          <img src={`${photo}`} alt={name} />
+        </a>
         <div>
           <h5 className="text-xl">{name}</h5>
           <p>${price}</p>
