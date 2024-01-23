@@ -9,8 +9,7 @@ run_tests:
     - deno test
 
 build_docker_image:
-  tags:
-    - shopping
+  image: docker:latest
   stage: build
   needs:
     - run_tests
