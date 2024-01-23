@@ -1,9 +1,16 @@
 stages:
   - testing
-  - build_image
+  - build
 
 run_tests:
   image: denoland/deno:latest
   stage: testing
   script:
     - deno test
+
+build_docker_image:
+  stage: build
+  needs:
+    - run_tests
+  script:
+    - docker build -t shopping-cat .
