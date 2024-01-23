@@ -1,6 +1,10 @@
 stages:
   - testing
   - build
+  - publish
+
+variables:
+  CI_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
 
 run_tests:
   image: denoland/deno:latest
@@ -12,14 +16,20 @@ build_image:
   stage: build
   needs:
     - run_tests
-  variables:
-    IMAGE_NAME: shopping-cat
-    CI_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_IMAGE .
+
+publish_to_registry:
+  stage: publish
+  needs:
+    - build_image
   image: docker:latest
   services:
     - docker:dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker build -t $CI_IMAGE .
     - docker push $CI_IMAGE
