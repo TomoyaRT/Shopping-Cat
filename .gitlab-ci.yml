@@ -8,13 +8,18 @@ run_tests:
   script:
     - deno test
 
-build_docker_image:
+build_image:
   stage: build
   needs:
     - run_tests
+  variables:
+    IMAGE_NAME: shopping-cat
+    CI_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
   image: docker:latest
   services:
     - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker info
-    - docker build -t shopping-cat .
+    - docker build -t $CI_IMAGE .
+    - docker push $CI_IMAGE
