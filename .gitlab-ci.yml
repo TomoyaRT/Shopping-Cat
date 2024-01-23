@@ -10,7 +10,7 @@ run_tests:
 
 build_docker_image:
   tags:
-    - shopping
+    - gitlab-org-docker
   stage: build
   needs:
     - run_tests
