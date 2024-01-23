@@ -11,6 +11,7 @@ run_tests:
 build_docker_image:
   tags:
     - docker
+  image: docker:latest
   stage: build
   needs:
     - run_tests
