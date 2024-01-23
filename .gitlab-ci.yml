@@ -16,4 +16,5 @@ build_docker_image:
   needs:
     - run_tests
   script:
+    - docker info
     - docker build -t shopping-cat .
