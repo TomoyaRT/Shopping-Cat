@@ -1,0 +1,8 @@
+stages:
+  - testing
+  - build_image
+
+run_tests:
+  stage: testing
+  script:
+    - deno test
