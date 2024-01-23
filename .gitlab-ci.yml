@@ -3,6 +3,7 @@ stages:
   - build_image
 
 run_tests:
+  image: denoland/deno:latest
   stage: testing
   script:
     - deno test
